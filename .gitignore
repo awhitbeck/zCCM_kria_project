@@ -2,7 +2,7 @@
 # website: https://www.xilinx.com/support/download.html
 
 # general
-*/*~
+**/*~
 firmware/build/*
 
 
