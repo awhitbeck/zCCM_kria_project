@@ -22,16 +22,20 @@ git add firmware/submodules
 git add software/
 ```
 
-Minimally, you need the ruckus repo as a submodule:
+Minimally, you need the ruckus and surf repos as submodules:
 
 ```
 cd firmware/submodules
 git submodule add git@github.com:slaclab/ruckus.git
+git submodule add git@github.com:slaclab/surf.git
 cd -
 ```
 
 Then, add any other submodules that you need. Now, set up your `Makefile`
 by editing the one in this directory.
+
+Add your target directories and the corresponding `Makefile` and `ruckus.tcl` file. You can 
+follow the one in the zCCM example here. 
 
 If you did everything correctly, 
 you should see a directory structure like this: 
@@ -40,8 +44,17 @@ you should see a directory structure like this:
 #tree -L 3
 .
 ├── firmware
-│   └── submodules
-│       └── ruckus
+│   ├── build
+│   │   ├── ruckus_test
+│   │   └── zCCM
+│   ├── common
+│   ├── release
+│   ├── submodules
+│   │   ├── ruckus
+│   │   └── surf
+│   └── targets
+│       └── zCCM
+├── images
 ├── README.md
 └── software
 ```
