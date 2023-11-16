@@ -1,60 +1,20 @@
-# ruckus_test
+# zCCM kria project
 
-Initial setup of repository is done in a standard manner.  Consider adding 
-a `.gitignore` file to make sure you are not clogging your repo with unnecessary files 
-from Vivado.   Track your ignore file: 
+This repo stores firmware and software for the control system of the LDMX 
+Trigger Scintillator.  The system will interface with the LDMX fast timing 
+system and QIE Readout Modules. This project is specifically intended to be
+implemented using a K26 kria SoM.  
 
-`git add .gitignore`
+## Getting started
 
-Set up your directory structure: 
+To get develop this project, you should first clone the repo: 
 
-```
-mkdir software
-mkdir firmware
-cd firmware
-mkdir submodules
-mkdir build
-mkdir common
-mkdir targets
-cd -
-git add firmware/
-git add firmware/submodules
-git add software/
-```
+`git clone --recurse-submodules firmware/targets/zCCM/hdl/top.vhd`
 
-Minimally, you need the ruckus and surf repos as submodules:
+to build the project you can either do this manually in vivado: 
 
-```
-cd firmware/submodules
-git submodule add git@github.com:slaclab/ruckus.git
-git submodule add git@github.com:slaclab/surf.git
-cd -
-```
+`make gui`
 
-Then, add any other submodules that you need. Now, set up your `Makefile`
-by editing the one in this directory.
+or in batch mode:
 
-Add your target directories and the corresponding `Makefile` and `ruckus.tcl` file. You can 
-follow the one in the zCCM example here. 
-
-If you did everything correctly, 
-you should see a directory structure like this: 
-
-```
-#tree -L 3
-.
-├── firmware
-│   ├── build
-│   │   ├── ruckus_test
-│   │   └── zCCM
-│   ├── common
-│   ├── release
-│   ├── submodules
-│   │   ├── ruckus
-│   │   └── surf
-│   └── targets
-│       └── zCCM
-├── images
-├── README.md
-└── software
-```
+`make`
